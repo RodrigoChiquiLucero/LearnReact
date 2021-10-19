@@ -1,15 +1,18 @@
 import { useState } from "react";
 
-const useFormulario = (incial) => {
-    const [formulario, setformulario] = useState(incial)
+const useFormulario = (inicial) => {
+    const [formulario, setformulario] = useState(inicial)
     const handleChange = (e) => {
         setformulario({
             ...formulario,
             [e.target.name]: e.target.value
         })
     }
+    const reset = () => {
+        setformulario(inicial)
+    }
 
-    return [formulario, handleChange];
+    return [formulario, handleChange, reset];
 }
 
 export default useFormulario;
